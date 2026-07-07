@@ -1,69 +1,55 @@
 ---
 title: Building a Personal Blog with AI
 date: 2026-07-07 19:57
-excerpt: From buying a domain to going live — all with AI assistance. Cloudflare + Next.js + TanStack Start, done in a weekend.
+excerpt: The journey from buying a domain to going live on Cloudflare, why I changed my name to 芋泥, and why this is the only site I'll run from now on.
 tags: [Hands-on, AI Tools]
 ---
 
-I've always wanted my own blog. Not on Medium, not on Dev.to — my own domain, my own design, my own voice. I put it off for a long time, and then finally decided: **let AI help me build it.**
+## Who I Am
 
-## Step 1: Buying a Domain
+My name is 芋泥 (Yùní). If you've come across "印刻君" (InkJun) somewhere on the Chinese internet — that was me too.
 
-A domain is where everything starts. I went with [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/) — at-cost pricing, no markup, free SSL and CDN built in.
+I've published articles on Juejin, written answers on Zhihu, built several iterations of personal blogs, and run a WeChat public account. Over the years, I've left traces all over the internet.
 
-I spent about $9 on a domain I liked. The whole process took under ten minutes: search, add to cart, pay, verify email. Cloudflare's interface is clean, no "add privacy protection for $14.99" dark patterns.
+But that was also the problem: **I was everywhere, but nowhere was truly my own.**
 
-Once the domain was mine, it felt real. This was my place now.
+## Making a Decision
 
-## Step 2: Building with Next.js
+This time, I've made up my mind.
 
-Next came the code. I chose Next.js — mature, great ecosystem, thorough docs, and I was already comfortable with the App Router.
+From now on, I'm running one site and one site only — right here: **芋泥魔杖 (YouWand)**.
+
+There's a small story behind the name. "YouWand" is a homophone for "You want." The original Chinese name was "予你魔杖" — "granting you a wand." But 予你 was hard to remember and harder to spread. After talking with friends, we switched to "芋泥" — taro paste. It's warm, cute, and sticks in your head instantly.
+
+I changed my author name to 芋泥 as well. Fresh start.
+
+## A Pipeline That Works
+
+After all these years of experimenting, the biggest thing I've figured out is a complete pipeline built entirely on Cloudflare:
+
+1. **Domain**: Cloudflare Registrar — at-cost pricing, SSL and CDN included
+2. **Code**: Next.js for the first version, styled with Tailwind CSS, writing in Markdown
+3. **Deployment**: Cloudflare Workers — global edge network, fast everywhere
+4. **Migration**: Used AI to migrate the entire project from Next.js to TanStack Start
 
 ```bash
+# Initial build
 npx create-next-app@latest you-wand --typescript --tailwind --app
+
+# AI-assisted migration to TanStack Start
+# Routes, i18n, styles, components — ported over intact
 ```
 
-I styled it with Tailwind CSS, and used LXGW WenKai for the handwritten Chinese font. The design is "Twilight Purple" — warm lavender background with violet accents, aiming for that warm, restrained magazine feel.
+Once this pipeline is set up, running a personal site becomes incredibly lightweight. No servers, no maintenance, no hassle. A domain costs a few dollars a year, deployment is free, and every article renders straight to HTML.
 
-I write articles in Markdown, compiled to JSON at build time via `gray-matter` + `remark`, with `shiki` handling syntax highlighting. Since the site deploys to Cloudflare Workers (no Node.js filesystem at runtime), everything has to be pre-built. I also rolled my own lightweight i18n for Chinese/English switching.
+## What I'll Write Here
 
-By the end of a weekend, the basics were done: article listing on the homepage, post detail pages, language toggle, and dark mode.
+Two directions.
 
-## Step 3: Letting AI Migrate It to TanStack Start
+**First: AI tools and productivity.** I use AI every day — writing code, drafting articles, organizing thoughts. Sharing what I learn might save you some time.
 
-After the Next.js version was live, I came across TanStack Start — a newer framework built on TanStack Router, with type-safe file-based routing and native Vite builds. It felt different from Next.js's "black box" approach.
-
-The migration idea was simple: **move every feature and design over, but swap the foundation to TanStack Start.**
-
-I described the task to AI:
-
-> "Help me migrate all features from you-wand to tanstack-you-wand. If there's a better approach or tech along the way, ask me."
-
-Here's what the AI did:
-
-1. **Dependencies**: installed `gray-matter`, `remark`, `shiki`, `lxgw-wenkai-webfont`
-2. **Route restructuring**: Next.js `[locale]` directory routes → TanStack Router `$locale` param routes
-3. **Middleware migration**: Next.js `middleware.ts` → root route `loader` + `redirect`
-4. **Style migration**: ported the entire Twilight Purple theme, adapted for Tailwind v4
-5. **Component adaptation**: `Link`, `useRouter`, `generateStaticParams` all converted to TanStack equivalents
-
-Throughout the process, the AI proactively asked:
-- Keep the theme or change it? (I said keep Twilight Purple)
-- What route structure? (Stick with `/zh/` `/en/` prefixes)
-- Migrate all content? (Yes, all of it)
-
-At every step, the AI presented a plan for approval before touching any code. Not a black-box "build me a website" — but **every move was visible and controlled.**
-
-## Looking Back
-
-Across the whole flow, I actually didn't do that much:
-
-- Buying the domain: I did this myself (AI can't replace that)
-- Initial build: I wrote the Next.js version myself (wanted to understand every detail)
-- Migration to TanStack: **the AI did this**
-
-If I'd done the Next.js → TanStack Start migration on my own, it would've eaten an entire weekend reading docs, hitting edge cases, debugging compatibility. The AI finished it in about half an hour — and explained every change.
+**Second: the how-to of building and deploying.** Like this article — documenting the pitfalls and the pipelines so you don't have to retrace my steps.
 
 ---
 
-You don't need to hand your entire site to AI at once. Start with one small task. You'll find: **what AI is best at isn't "doing it for you" — it's "helping you understand faster."**
+After all these years, I finally have a quiet corner to write in. Welcome.
