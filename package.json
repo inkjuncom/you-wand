@@ -6,9 +6,10 @@
 		"#/*": "./src/*"
 	},
 	"scripts": {
+		"generate-posts": "node scripts/generate-posts.mjs",
 		"dev": "vite dev --port 3000",
 		"generate-routes": "tsr generate",
-		"build": "vite build",
+		"build": "node scripts/generate-posts.mjs && vite build",
 		"preview": "pnpm run build && vite preview",
 		"test": "vitest run",
 		"format": "biome format",
@@ -19,6 +20,9 @@
 	},
 	"dependencies": {
 		"@cloudflare/vite-plugin": "^1.26.0",
+		"@shikijs/engine-oniguruma": "^3.2.2",
+		"@shikijs/langs": "^3.2.2",
+		"@shikijs/themes": "^3.2.2",
 		"@tailwindcss/vite": "^4.1.18",
 		"@tanstack/react-devtools": "latest",
 		"@tanstack/react-router": "latest",
@@ -26,9 +30,15 @@
 		"@tanstack/react-router-ssr-query": "latest",
 		"@tanstack/react-start": "latest",
 		"@tanstack/router-plugin": "^1.132.0",
+		"gray-matter": "^4.0.3",
 		"lucide-react": "^0.545.0",
+		"lxgw-wenkai-webfont": "^1.7.0",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
+		"remark": "^15.0.1",
+		"remark-gfm": "^4.0.1",
+		"remark-html": "^16.0.1",
+		"shiki": "^3.2.2",
 		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
@@ -47,11 +57,5 @@
 		"vite": "^8.0.0",
 		"vitest": "^4.1.5",
 		"wrangler": "^4.107.0"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"esbuild",
-			"lightningcss"
-		]
 	}
 }

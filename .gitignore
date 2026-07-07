@@ -15,3 +15,6 @@ todos.json
 .dev.vars*
 !.dev.vars.example
 !.env.example
+
+# Generated build artifacts
+src/data/posts-generated.json
