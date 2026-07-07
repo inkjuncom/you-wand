@@ -11,7 +11,7 @@ I've always wanted my own blog. Not on Medium, not on Dev.to — my own domain, 
 
 A domain is where everything starts. I went with [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/) — at-cost pricing, no markup, free SSL and CDN built in.
 
-Spent about $9 on a domain I liked. The whole process took under ten minutes: search, add to cart, pay, verify email. Cloudflare's interface is clean, no "add privacy protection for $14.99" dark patterns.
+I spent about $9 on a domain I liked. The whole process took under ten minutes: search, add to cart, pay, verify email. Cloudflare's interface is clean, no "add privacy protection for $14.99" dark patterns.
 
 Once the domain was mine, it felt real. This was my place now.
 
@@ -23,9 +23,9 @@ Next came the code. I chose Next.js — mature, great ecosystem, thorough docs, 
 npx create-next-app@latest you-wand --typescript --tailwind --app
 ```
 
-Styled with Tailwind CSS, and used LXGW WenKai for the handwritten Chinese font. The design is "Twilight Purple" — warm lavender background with violet accents, aiming for that warm, restrained magazine feel.
+I styled it with Tailwind CSS, and used LXGW WenKai for the handwritten Chinese font. The design is "Twilight Purple" — warm lavender background with violet accents, aiming for that warm, restrained magazine feel.
 
-Articles are written in Markdown, compiled to JSON at build time via `gray-matter` + `remark`, with `shiki` handling syntax highlighting. Since the site deploys to Cloudflare Workers (no Node.js filesystem at runtime), everything has to be pre-built. I also rolled my own lightweight i18n for Chinese/English switching.
+I write articles in Markdown, compiled to JSON at build time via `gray-matter` + `remark`, with `shiki` handling syntax highlighting. Since the site deploys to Cloudflare Workers (no Node.js filesystem at runtime), everything has to be pre-built. I also rolled my own lightweight i18n for Chinese/English switching.
 
 By the end of a weekend, the basics were done: article listing on the homepage, post detail pages, language toggle, and dark mode.
 
